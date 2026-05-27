@@ -31,6 +31,12 @@ async def main():
     
     print("Connected after block:", client.is_connected())
 
+    location = Client("./server_location.py")
+
+    async with location:
+        c = await location.call_tool("coordinates", {"city": "Paris"})
+        print("Location server:", c.data)
+
     
 if __name__ == "__main__":
     asyncio.run(main())
