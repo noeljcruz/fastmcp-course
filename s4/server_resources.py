@@ -4,6 +4,7 @@ from fastmcp import FastMCP, Context
 
 mcp = FastMCP(name="Config Server")
 
+
 @mcp.resource("data://config")
 async def config() -> str:
     return json.dumps(
